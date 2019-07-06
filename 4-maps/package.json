@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@types/faker": "^4.1.5",
+    "@types/googlemaps": "^3.36.6",
+    "concurrently": "^4.1.1",
+    "http-server": "^0.11.1",
+    "typescript": "^3.5.2"
+  },
+  "scripts": {
+    "start": "concurrently \"parcel index.html\" \"open http://localhost:1234\""
+  },
+  "dependencies": {
+    "@types/node": "^12.0.12",
+    "fake": "^0.2.2",
+    "faker": "^4.1.0"
+  }
+}
