@@ -1,14 +1,17 @@
+import { Sorter } from './sorter'
+
 class Node {
   next: Node | null = null
 
   constructor(public data: number) {}
 }
 
-export class LinkedList {
+export class LinkedList extends Sorter {
   head: Node | null = null
 
   add(data: number): void {
     const node = new Node(data)
+
     if (!this.head) {
       this.head = node
       // with void, we can still, just don't return a thing
@@ -58,7 +61,7 @@ export class LinkedList {
   at(index: number): Node {
     // you can't ask for an index when we don't have a list
     if (!this.head) {
-      throw new Error('Index out of bounds')
+      throw new Error('Index out of bounds 1')
     }
 
     if (index < 0) {
@@ -70,7 +73,7 @@ export class LinkedList {
     // ts is going to complain because it can't type infer
     let node: Node | null = this.head
 
-    while (node.next) {
+    while (node) {
       if (counter === index) {
         return node
       }
@@ -82,7 +85,7 @@ export class LinkedList {
     // it means we have gone through the whole list
     // and not found a node of that index
     // e.g. passing an index > list.length
-    throw new Error('Index out of bounds')
+    throw new Error('Index out of bounds 2')
   }
 
   compare(leftIndex: number, rightIndex: number): boolean {
@@ -94,6 +97,9 @@ export class LinkedList {
       throw new Error('Index has to be positive')
     }
 
+    console.log('leftIndex', leftIndex)
+    console.log('rightIndex', rightIndex)
+    console.log('>', this.at(leftIndex).data > this.at(rightIndex).data)
     return this.at(leftIndex).data > this.at(rightIndex).data
   }
 

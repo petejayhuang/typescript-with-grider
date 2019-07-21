@@ -1,7 +1,11 @@
+import { Sorter } from './Sorter'
 import { Sortable } from './sorter'
 
-export class NumbersCollection implements Sortable {
-  constructor(public data: number[]) {}
+export class NumbersCollection extends Sorter {
+  constructor(public data: number[]) {
+    // a reference to the parent class
+    super()
+  }
   get length() {
     return this.data.length
   }
