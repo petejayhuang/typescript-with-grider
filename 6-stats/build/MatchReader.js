@@ -1,12 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = require("./utils");
+var CsvFileReader_1 = require("./CsvFileReader");
 var MatchReader = /** @class */ (function () {
     // remember this is short hand for auto assigning reader to the class
     function MatchReader(reader) {
         this.reader = reader;
         this.matches = [];
     }
+    MatchReader.fromCsv = function (filename) {
+        return new MatchReader(new CsvFileReader_1.CsvFileReader(filename));
+    };
     MatchReader.prototype.load = function () {
         // the reader we are given and run the load function
         this.reader.read();
